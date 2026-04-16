@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa de Dealers | New Era Solar Energy</title>
+<link rel="icon" type="image/png" href="https://assets.cdn.filesafe.space/b8p0C5reCGjcLB5v8PvO/media/69e01789fcac588c6b32f575.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* colors inlined */
+
+/* gradient orbs removed for GHL */
+ 
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;height:100%}
+body{background:#1A2535;color:#FFFFFF;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.68;overflow-x:hidden;min-height:100%}
+
+/* LANG BAR */
+.lang-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:#1A2535;border-bottom:1px solid #2A3443;height:36px;display:flex;align-items:center;justify-content:flex-end;padding:0 28px;gap:4px}
+.lang-btn{display:flex;align-items:center;gap:6px;background:none;border:1px solid #3C4553;border-radius:4px;padding:5px 14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#989DA4;cursor:pointer;transition:all .2s}
+.lang-btn:hover{border-color:#E8632A;color:#FFFFFF}
+.lang-btn.active{background:#E8632A;border-color:#E8632A;color:#FFFFFF}
+.lang-btn .flag{font-size:14px;line-height:1}
+
+/* NAV */
+nav{position:fixed;top:36px;left:0;right:0;z-index:100;background:#1A2535;backdrop-filter:blur(20px);border-bottom:1px solid #2A3443;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;padding:4px 0;flex-shrink:0}
+.nav-logo img{height:34px;display:block;filter:none}
+
+/* Desktop nav links */
+.nav-links{display:flex;align-items:center;gap:20px;list-style:none}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.02em;color:#AFB3B8;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#F07545}
+.nav-cta{background:#E8632A!important;color:#FFFFFF!important;padding:9px 18px;border-radius:4px;font-weight:700!important;white-space:nowrap}
+.nav-cta:hover{background:#F07545!important}
+
+/* Hamburger button */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:1px solid #3C4553;border-radius:6px;cursor:pointer;padding:8px;transition:border-color .2s;flex-shrink:0}
+.nav-hamburger:hover{border-color:#E8632A}
+.nav-hamburger span{display:block;width:18px;height:2px;background:#D1D3D7;border-radius:2px;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile drawer */
+.nav-drawer{display:block;position:fixed;top:102px;left:0;right:0;z-index:99;background:#0D1623;backdrop-filter:blur(24px);border-bottom:1px solid #2A3443;padding:0;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(0.4,0,0.2,1),padding .4s ease,opacity .3s ease;opacity:0;pointer-events:none}
+.nav-drawer.open{max-height:500px;padding:12px 0 20px;opacity:1;pointer-events:auto}
+.nav-drawer ul{list-style:none;display:flex;flex-direction:column;padding:0 20px;gap:2px}
+.nav-drawer ul li a{display:flex;align-items:center;gap:10px;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:#1E2D3D;text-decoration:none;border-radius:8px;transition:all .2s}
+.nav-drawer ul li a:hover{background:#332D34;color:#FFFFFF}
+.nav-drawer ul li a i{width:16px;text-align:center;color:#E8632A;font-size:13px}
+.nav-drawer .drawer-cta{margin:12px 20px 0;display:block}
+.nav-drawer .drawer-cta a{display:flex;align-items:center;justify-content:center;gap:10px;background:#E8632A;color:#FFFFFF;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase;padding:15px;border-radius:6px;text-decoration:none;transition:background .2s}
+.nav-drawer .drawer-cta a:hover{background:#F07545}
+
+/* Lang inside drawer */
+.drawer-lang{display:flex;gap:8px;padding:0 20px;margin-top:8px;border-top:1px solid #273241;padding-top:14px}
+.drawer-lang button{flex:1;padding:9px;border:1px solid #3C4553;border-radius:6px;background:none;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#989DA4;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.drawer-lang button.active{background:#E8632A;border-color:#E8632A;color:#FFFFFF}
+.drawer-lang button:hover:not(.active){border-color:#E8632A;color:#FFFFFF}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  nav{padding:0 16px}
+  .nav-logo img{height:30px}
+}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:160px 24px 80px;overflow:hidden;background:transparent}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,#0D1B2A 0%,#1A2535 100%)}
+.hero-glow{position:absolute;top:5%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,#392E33 0%,transparent 65%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:860px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#2F2B34;border:1px solid #623B31;border-radius:100px;padding:7px 20px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F07545;margin-bottom:28px}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#F07545;flex-shrink:0}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(52px,8vw,100px);line-height:.96;color:#FFFFFF;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:#F07545}
+.hero-sub{margin-top:28px;font-size:clamp(17px,2vw,21px);color:#BABDC2;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.65;font-weight:300}
+.hero-sub strong{color:#FFFFFF}
+.hero-actions{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;border-radius:6px;transition:all .22s;padding:18px 42px}
+.btn-orange{background:#E8632A;color:#FFFFFF;box-shadow:0 8px 32px #4E3532}
+.btn-orange:hover{background:#F07545;box-shadow:0 8px 36px #623B31;transform:translateY(-2px)}
+.hero-note{font-size:12px;color:#989DA4;letter-spacing:.04em}
+
+/* STATS */
+.stats-bar{background:#162030;backdrop-filter:blur(12px);border-top:1px solid #273241;border-bottom:1px solid #273241;padding:32px 0}
+.stats-inner{max-width:900px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));text-align:center}
+.stat{padding:8px 16px;border-right:1px solid #2A3443}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:32px;color:#E8632A;line-height:1;margin-bottom:6px;letter-spacing:.02em}
+.stat-label{font-size:10px;color:#989DA4;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+@media(max-width:560px){.stats-inner{grid-template-columns:1fr 1fr}.stat{border-right:none;border-bottom:1px solid #2A3443}.stat:nth-child(odd){border-right:1px solid #2A3443}}
+
+/* SHARED */
+.container{max-width:880px;margin:0 auto;padding:0 24px}
+.section-eyebrow{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#E8632A;margin-bottom:16px;display:inline-flex;align-items:center;gap:10px}.section-eyebrow::before{content:"";display:block;width:24px;height:2px;background:#E8632A;border-radius:2px;flex-shrink:0}
+h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(34px,4.5vw,58px);line-height:1.0;color:#FFFFFF;margin-bottom:20px;letter-spacing:-.01em}
+.section-desc{color:#989DA4;max-width:560px;font-size:16px;line-height:1.7}
+
+/* CREDIBILITY */
+.credibility{padding:108px 0;text-align:center;background:#0F1E2E}
+.veteran-badge{display:inline-flex;align-items:center;gap:10px;background:#2F2B34;border:1px solid #573732;border-radius:6px;padding:12px 22px;margin:32px auto 0;font-size:13px;color:#F07545;font-family:'DM Sans',sans-serif;font-weight:600}
+.veteran-badge strong{color:#F07545;font-weight:700}
+.cred-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;background:#2A2A34;border:1px solid #332D34;border-radius:12px;overflow:hidden;margin-top:60px;box-shadow:0 4px 32px #151E2A}
+.cred-cell{background:#162030;padding:40px 24px;text-align:center;transition:background .25s;}
+.cred-cell:hover{background:#1E2D3D}.cred-icon{font-size:28px;margin-bottom:12px;color:#F07545}
+.cred-cell-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#F07545;margin-bottom:8px}
+.cred-cell p{font-size:13px;color:#989DA4;margin:0;line-height:1.5}
+
+/* BENEFITS */
+.benefits{padding:108px 0;background:#1A2535;backdrop-filter:blur(4px);border-top:1px solid #26303F;border-bottom:1px solid #26303F}
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:20px;margin-top:56px}
+.benefit-card{background:#1E2D3D;border:1px solid #332D34;backdrop-filter:blur(8px);border-radius:12px;padding:32px 28px;position:relative;overflow:hidden;box-shadow:0 4px 24px #151E2A;transition:border-color .25s,transform .2s,box-shadow .25s}
+.benefit-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#E8632A,#F07545);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.benefit-card:hover{border-color:#6C3E31;transform:translateY(-4px);box-shadow:0 8px 40px #433133}
+.benefit-card:hover::after{transform:scaleX(1)}
+.benefit-icon{width:48px;height:48px;border-radius:10px;background:#392E33;border:1px solid #4E3532;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:18px;color:#E8632A}
+.benefit-title{font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:#FFFFFF;margin-bottom:8px;letter-spacing:-.01em}
+.benefit-desc{font-size:14px;color:#989DA4;margin:0;line-height:1.6}
+
+/* FILTER */
+.filter{padding:108px 0;background:#0F1E2E}
+.filter-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:50px}
+@media(max-width:600px){.filter-grid{grid-template-columns:1fr}}
+.filter-card{border-radius:12px;padding:36px 30px;border:1px solid;transition:box-shadow .2s}
+.filter-card.no{background:#162030;border-color:#2C3645;backdrop-filter:blur(8px);}
+.filter-card.yes{background:#2A1408;border-color:#4E3532;backdrop-filter:blur(8px);}
+.filter-heading{font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:9px}
+.filter-heading.no{color:#8D929A}
+.filter-heading.yes{color:#F07545}
+.filter-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.filter-list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#FFFFFF;line-height:1.5}
+.fi{flex-shrink:0;margin-top:2px;font-size:13px;width:16px;text-align:center}
+
+/* WHO */
+.who{padding:108px 0;text-align:center;background:#0F1E2E;backdrop-filter:blur(8px);border-top:1px solid #2A3443;border-bottom:1px solid #2A3443}
+.profile-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:44px}
+.ptag{background:#1E2D3D;border:1px solid #36404E;border-radius:100px;padding:9px 24px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#FFFFFF;letter-spacing:.01em;transition:all .2s;cursor:default;backdrop-filter:blur(4px)}
+.ptag:hover{border-color:#81442F;color:#F07545;background:#2F2B34}
+.exclusivity-box{margin:52px auto 0;max-width:640px;background:#2F2B34;border:1px solid #4E3532;border-radius:12px;padding:32px 30px;backdrop-filter:blur(8px)}
+.exclusivity-box p{font-size:18px;color:#FFFFFF;margin:0;line-height:1.68;font-family:'DM Sans',sans-serif;font-weight:400}
+.exclusivity-box strong{color:#F07545;}
+
+/* URGENCY */
+.urgency-bar{background:linear-gradient(90deg,#C9511E,#E8632A,#F07545);padding:14px 24px;text-align:center;font-family:'DM Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#FFFFFF;display:flex;align-items:center;justify-content:center;gap:10px}
+
+/* FORM */
+.form-section{padding:108px 0 136px;background:#0F1E2E}
+.form-intro{text-align:center;margin-bottom:60px}
+.form-intro .section-desc{margin:0 auto}
+.form-card{background:#162030;border:1px solid #2C3645;backdrop-filter:blur(16px);border-radius:20px;padding:56px 52px;max-width:740px;margin:0 auto;box-shadow:0 8px 48px #121A25}
+@media(max-width:600px){.form-card{padding:28px 16px}}
+.form-part{margin-bottom:46px}
+.form-part-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E8632A;padding-bottom:12px;border-bottom:1px solid #2C3645;margin-bottom:26px;display:flex;align-items:center;gap:10px}
+.form-part-num{width:24px;height:24px;border-radius:50%;background:#E8632A;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#FFFFFF;flex-shrink:0}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#989DA4;margin-bottom:9px}
+input[type="text"],input[type="email"],input[type="tel"],textarea{width:100%;background:#0F1E2E;border:1px solid #313B4A;border-radius:4px;color:#FFFFFF;font-family:'Open Sans',sans-serif;font-size:15px;padding:13px 15px;outline:none;transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus{border-color:#81442F;box-shadow:0 0 0 3px #2A2A34}
+input::placeholder,textarea::placeholder{color:#6A717C}
+textarea{resize:vertical;min-height:88px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+.radio-group,.check-group{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:center;gap:12px;cursor:pointer;padding:12px 16px;background:#0D1B2A;border:1px solid #2C3645;border-radius:6px;transition:border-color .15s,background .15s;font-size:14px;color:#D1D3D7;user-select:none}
+.opt:hover{border-color:#6C3E31;background:#2A2A34}
+.opt input{width:16px!important;height:16px;accent-color:#E8632A;flex-shrink:0}
+
+/* CTA */
+.cta-block{background:#0F1E2E;border:1px solid #2C3645;border-radius:12px;padding:40px 32px;text-align:center;margin-top:48px;backdrop-filter:blur(8px)}
+.cta-conditions{list-style:none;display:flex;flex-direction:column;gap:8px;text-align:left;max-width:480px;margin:0 auto 26px}
+.cta-conditions li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#A3A8AE}
+.cta-conditions li .cond-icon{color:#E8632A;flex-shrink:0;width:16px;text-align:center}
+.submit-btn{width:100%;max-width:460px;background:#E8632A;color:#FFFFFF;font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;padding:19px;border:none;border-radius:6px;cursor:pointer;box-shadow:0 8px 32px #4E3532;transition:background .22s,box-shadow .22s,transform .22s}
+.submit-btn:hover{background:#F07545;box-shadow:0 8px 40px #573732;transform:translateY(-2px)}
+.legal-note{font-size:12px;color:#8D929A;margin-top:14px;line-height:1.55}
+
+/* FOOTER */
+footer{background:#1A2535;border-top:1px solid #273241;padding:64px 24px 40px}
+.footer-inner{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr;gap:32px}}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.footer-logo img{height:36px;filter:none;opacity:1}
+/* footer-logo-text removed — using image logo */
+.footer-desc{font-size:13px;color:#989DA4;line-height:1.7;margin-bottom:20px;font-family:'DM Sans',sans-serif}
+.footer-contact a{display:flex;align-items:center;gap:10px;font-size:13px;color:#989DA4;text-decoration:none;margin-bottom:8px;transition:color .2s}.footer-contact a i{font-size:13px;color:#E8632A;width:14px;text-align:center;flex-shrink:0}
+.footer-contact a:hover{color:#F07545}
+.footer-col-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF;margin-bottom:18px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:13px;color:#989DA4;text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:#F07545}
+.footer-bottom{max-width:880px;margin:32px auto 0;padding-top:22px;border-top:1px solid #2C3645;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.footer-bottom p{font-size:12px;color:#818790}
+
+.benefit-card:hover{border-color:#6C3E31;transform:translateY(-4px);box-shadow:0 8px 40px #433133}
+
+
+/* Entrance animations removed for GHL iframe compatibility */
+
+
+/* ═══════════════════════════════════════
+   EQUIPMENT / FINANCING / BATTERIES
+═══════════════════════════════════════ */
+.catalog {
+  padding: 108px 0;
+  background: #111D2B;
+  border-top: 1px solid #182332;
+  border-bottom: 1px solid #182332;
+}
+
+/* Tab navigation */
+.tab-nav {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin: 44px auto 56px;
+  background: #0D1B2A;
+  border: 1px solid #2C3645;
+  border-radius: 12px;
+  padding: 5px;
+  max-width: 460px;
+}
+
+.tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #818790;
+  cursor: pointer;
+  transition: all .2s;
+  white-space: nowrap;
+}
+
+.tab-btn:hover { color: #E8632A; }
+
+.tab-btn.active {
+  background: #1E2D3D;
+  color: #F07545;
+  box-shadow: 0 2px 12px #131C28;
+}
+
+/* Tab panels */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Package cards */
+.pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.pkg-card {
+  background: #162030;
+  border: 1px solid #2A3443;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px #151E2A;
+  transition: transform .22s, box-shadow .22s;
+}
+
+.pkg-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px #2F2B34;
+}
+
+.pkg-header {
+  padding: 22px 26px 18px;
+  border-bottom: 1px solid #273241;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pkg-icon {
+  width: 42px; height: 42px;
+  border-radius: 8px;
+  background: #2F2B34;
+  border: 1px solid #433133;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: #E8632A; flex-shrink: 0;
+}
+
+.pkg-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800; font-size: 15px;
+  color: #FFFFFF; line-height: 1.2;
+}
+
+.pkg-type {
+  display: inline-block;
+  margin-top: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: #E8632A;
+  background: #2F2B34;
+  border-radius: 100px;
+  padding: 2px 10px;
+}
+
+.pkg-body { padding: 20px 26px 24px; }
+
+.pkg-includes {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: #8D929A; margin-bottom: 12px;
+}
+
+.pkg-items { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+
+.pkg-items li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: #D1D3D7; line-height: 1.45;
+}
+
+.pkg-items li i {
+  color: #E8632A; margin-top: 2px;
+  flex-shrink: 0; font-size: 12px; width: 14px;
+}
+
+.pkg-full-label {
+  margin-top: 18px;
+  padding: 10px 14px;
+  background: #332D34;
+  border-radius: 6px;
+  font-size: 12px; color: #AFB3B8;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.pkg-full-label i { color: #E8632A; font-size: 12px; }
+
+/* Upgrades row */
+.upgrades-row {
+  margin-top: 8px;
+  background: #172232;
+  border: 1px dashed #573732;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.upgrades-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: #E8632A; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.upgrades-list {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+
+.upgrade-tag {
+  display: flex; align-items: center; gap: 7px;
+  background: #2F2B34;
+  border: 1px solid #4E3532;
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 13px; color: #D1D3D7;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.upgrade-tag i { color: #E8632A; font-size: 11px; }
+
+/* Financing table */
+.fin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.fin-card {
+  background: #162030;
+  border: 1px solid #2A3443;
+  border-radius: 12px;
+  padding: 28px 26px;
+  box-shadow: 0 2px 12px #151E2A;
+  transition: transform .22s, box-shadow .22s;
+}
+
+.fin-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px #2F2B34;
+}
+
+.fin-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; font-size: 20px;
+  color: #FFFFFF; margin-bottom: 6px;
+  letter-spacing: -.01em;
+}
+
+.fin-type-badge {
+  display: inline-block;
+  background: #2F2B34;
+  color: #E8632A;
+  border-radius: 100px;
+  padding: 3px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.fin-covers-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: #8D929A; margin-bottom: 10px;
+}
+
+.fin-covers { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.fin-cover-tag {
+  display: flex; align-items: center; gap: 6px;
+  background: #0D1B2A;
+  border: 1px solid #2C3645;
+  border-radius: 6px;
+  padding: 5px 11px;
+  font-size: 12px; color: #D1D3D7;
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+}
+
+.fin-cover-tag i { color: #E8632A; font-size: 11px; }
+
+/* Battery grid */
+.bat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.bat-card {
+  background: #162030;
+  border: 1px solid #2A3443;
+  border-radius: 12px;
+  padding: 26px 24px;
+  box-shadow: 0 2px 12px #151E2A;
+  position: relative;
+  overflow: hidden;
+  transition: transform .22s, box-shadow .22s;
+}
+
+.bat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #E8632A, #F07545);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s;
+}
+
+.bat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px #2F2B34; }
+.bat-card:hover::before { transform: scaleX(1); }
+
+.bat-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800; font-size: 14px;
+  color: #FFFFFF; margin-bottom: 4px;
+}
+
+.bat-kwh {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; font-size: 26px;
+  color: #E8632A; line-height: 1;
+  margin: 12px 0 4px;
+}
+
+.bat-kwh span { font-size: 14px; font-weight: 600; color: #989DA4; }
+
+.bat-feature {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; color: #A3A8AE;
+  margin-top: 10px;
+}
+
+.bat-feature i { color: #E8632A; font-size: 11px; }
+
+.bat-configs {
+  display: flex; gap: 5px; margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.bat-config {
+  background: #2A2A34;
+  border: 1px solid #392E33;
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700;
+  color: #C9511E;
+}
+
+/* Add catalog to z-index list */
+
+
+/* ════════════════════════════════════════
+   RESPONSIVE — MOBILE FIRST
+════════════════════════════════════════ */
+
+/* Tablet */
+@media(max-width:900px){
+  .filter-grid{grid-template-columns:1fr 1fr}
+  .benefits-grid{grid-template-columns:repeat(2,1fr)}
+  .pkg-grid{grid-template-columns:1fr}
+  .fin-grid{grid-template-columns:repeat(2,1fr)}
+  .bat-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .footer-inner>div:first-child{grid-column:1/-1}
+}
+
+/* Mobile */
+@media(max-width:640px){
+  /* Hero */
+  .hero{padding:130px 20px 60px}
+  .hero-actions .btn{padding:16px 28px;font-size:13px;width:100%;justify-content:center}
+
+  /* Sections */
+  .credibility,.benefits,.filter,.who,.catalog,.form-section{padding:72px 0}
+  .container{padding:0 18px}
+  .section-eyebrow{font-size:10px}
+
+  /* Stats */
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat:nth-child(5){grid-column:1/-1;border-right:none}
+  .stat-num{font-size:26px}
+
+  /* Grids → 1 col */
+  .benefits-grid{grid-template-columns:1fr}
+  .filter-grid{grid-template-columns:1fr}
+  .cred-grid{grid-template-columns:1fr 1fr}
+  .pkg-grid{grid-template-columns:1fr}
+  .fin-grid{grid-template-columns:1fr}
+  .bat-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr}
+
+  /* Form */
+  .form-card{padding:28px 18px;border-radius:12px}
+  .form-row{grid-template-columns:1fr}
+  .cta-block{padding:28px 18px}
+  .submit-btn{font-size:14px;padding:16px}
+
+  /* Profile tags */
+  .profile-tags{gap:8px}
+  .ptag{font-size:12px;padding:7px 16px}
+
+  /* Tab nav */
+  .tab-nav{max-width:100%}
+  .tab-btn{font-size:11px;padding:8px 10px;gap:5px}
+
+  /* Lang bar hide on mobile — in drawer instead */
+  .lang-bar{display:none}
+  nav{top:0}
+  .nav-drawer{top:66px;display:block}
+
+  /* Urgency bar */
+  .urgency-bar{font-size:11px;padding:12px 16px;text-align:center}
+
+  /* Footer */
+  footer{padding:48px 18px 32px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
+
+  /* Exclusivity box */
+  .exclusivity-box{padding:24px 20px}
+  .exclusivity-box p{font-size:16px}
+}
+
+/* Small phones */
+@media(max-width:400px){
+  .cred-grid{grid-template-columns:1fr}
+  .bat-grid{grid-template-columns:1fr}
+  .hero h1{font-size:48px}
+}
+
+/* lang switching styles removed for GHL compatibility */
+</style>
+</head>
+<body>
+
+<!-- ── LANG BAR ── -->
+<div class="lang-bar">
+  <button class="lang-btn active" id="btn-es" onclick="setLang('es')"><span class="flag">🇲🇽</span> ES</button>
+  <button class="lang-btn" id="btn-en" onclick="setLang('en')"><span class="flag">🇺🇸</span> EN</button>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="https://newerasolarenergy.com" class="nav-logo">
+    <img src="https://assets.cdn.filesafe.space/b8p0C5reCGjcLB5v8PvO/media/69e01789028a57ebb728e032.png" alt="New Era Solar Energy">
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://newerasolarenergy.com/why-new-era-solar-energy/" class="lang-fade" data-key="nav.why">Por Qué Nosotros</a></li>
+    <li><a href="https://newerasolarenergy.com/our-process/" class="lang-fade" data-key="nav.process">Nuestro Proceso</a></li>
+    <li><a href="https://newerasolarenergy.com/testimonials/" class="lang-fade" data-key="nav.testimonials">Testimonios</a></li>
+    <li><a href="#form-anchor" class="nav-cta lang-fade" data-key="nav.apply">Aplicar Ahora</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── MOBILE DRAWER ── -->
+<div class="nav-drawer" id="nav-drawer">
+  <ul>
+    <li><a href="https://newerasolarenergy.com/why-new-era-solar-energy/" onclick="toggleMenu()"><i class="fa-solid fa-circle-question"></i><span class="lang-fade" data-key="nav.why">Por Qué Nosotros</span></a></li>
+    <li><a href="https://newerasolarenergy.com/our-process/" onclick="toggleMenu()"><i class="fa-solid fa-route"></i><span class="lang-fade" data-key="nav.process">Nuestro Proceso</span></a></li>
+    <li><a href="https://newerasolarenergy.com/testimonials/" onclick="toggleMenu()"><i class="fa-solid fa-star"></i><span class="lang-fade" data-key="nav.testimonials">Testimonios</span></a></li>
+  </ul>
+  <div class="drawer-cta">
+    <a href="#form-anchor" onclick="toggleMenu()">
+      <i class="fa-solid fa-arrow-right"></i>
+      <span class="lang-fade" data-key="nav.apply">Aplicar Ahora</span>
+    </a>
+  </div>
+  <div class="drawer-lang">
+    <button class="active" id="drawer-btn-es" onclick="setLang('es');syncDrawerLang('es')"><span>🇲🇽</span> ES</button>
+    <button id="drawer-btn-en" onclick="setLang('en');syncDrawerLang('en')"><span>🇺🇸</span> EN</button>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="badge lang-fade" data-key="hero.badge">Programa de Dealers — Cupos Limitados</div>
+    <h1 class="lang-fade" data-key="hero.h1">Tu EPC Actual<br>Te Está <em>Costando</em><br>Proyectos.</h1>
+    <p class="hero-sub lang-fade" data-key="hero.sub">New Era Solar Energy busca <strong>representantes solares con experiencia</strong> que quieran mejores comisiones, instalaciones más rápidas y un socio EPC que realmente cumpla. Si ya estás cerrando, esta es tu oportunidad.</p>
+    <div class="hero-actions">
+      <a href="#form-anchor" class="btn btn-orange">
+        <span class="lang-fade" data-key="hero.cta">Aplicar al Programa de Dealers</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <span class="hero-note lang-fade" data-key="hero.note">La aplicación toma menos de 4 minutos · Solo candidatos calificados avanzan</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">FL</div><div class="stat-label">Florida</div></div>
+    <div class="stat"><div class="stat-num">CT</div><div class="stat-label">Connecticut</div></div>
+    <div class="stat"><div class="stat-num">MA</div><div class="stat-label">Massachusetts</div></div>
+    <div class="stat"><div class="stat-num">Fast</div><div class="stat-label lang-fade" data-key="stats.installs">Instalaciones Rápidas</div></div>
+    <div class="stat"><div class="stat-num">EPC</div><div class="stat-label lang-fade" data-key="stats.fullservice">Socio Full-Service</div></div>
+  </div>
+</div>
+
+<!-- ── CREDIBILITY ── -->
+<section class="credibility">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow lang-fade" data-key="cred.eyebrow">Por qué New Era Solar Energy</div>
+      <h2 class="section-title lang-fade" data-key="cred.title">Un EPC Que Respalda<br>A Sus Dealers</h2>
+      <p class="section-desc lang-fade" style="margin:0 auto" data-key="cred.desc">Somos un EPC full-service: nos encargamos de la ingeniería, permisos, procurement y construcción. Tu equipo solo necesita enfocarse en cerrar. Nosotros nos encargamos del resto.</p>
+      <div class="veteran-badge">
+        <i class="fa-solid fa-medal"></i>
+        <span class="lang-fade" data-key="cred.veteran">Empresa de <strong>propiedad veterana</strong> — Integridad, Calidad y Servicio</span>
+      </div>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-cell"><div class="cred-icon"><i class="fa-solid fa-bolt"></i></div><div class="cred-cell-title lang-fade" data-key="cred.c1t">Instalaciones Rápidas</div><p class="lang-fade" data-key="cred.c1d">La mayoría de instalaciones se completan en un día después de permisos.</p></div>
+      <div class="cred-cell"><div class="cred-icon"><i class="fa-solid fa-headset"></i></div><div class="cred-cell-title lang-fade" data-key="cred.c2t">Soporte Directo</div><p class="lang-fade" data-key="cred.c2d">Rep de cuenta dedicado. Sin correos sin respuesta, sin esperas de días.</p></div>
+      <div class="cred-cell"><div class="cred-icon"><i class="fa-solid fa-clipboard-list"></i></div><div class="cred-cell-title lang-fade" data-key="cred.c3t">Procesos Transparentes</div><p class="lang-fade" data-key="cred.c3d">Sabes en qué etapa está cada proyecto en tiempo real.</p></div>
+      <div class="cred-cell"><div class="cred-icon"><i class="fa-solid fa-chart-line"></i></div><div class="cred-cell-title lang-fade" data-key="cred.c4t">Capacidad de Escalar</div><p class="lang-fade" data-key="cred.c4d">Infraestructura para manejar dealers de alto volumen. Crecemos juntos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BENEFITS ── -->
+<section class="benefits">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow lang-fade" data-key="ben.eyebrow">Lo que obtienes como dealer</div>
+      <h2 class="section-title lang-fade" data-key="ben.title">Lo Que Significa Tener<br>Un EPC De Verdad</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card"><div class="benefit-icon"><i class="fa-solid fa-sack-dollar"></i></div><div class="benefit-title lang-fade" data-key="ben.b1t">Comisiones Competitivas</div><p class="benefit-desc lang-fade" data-key="ben.b1d">Estructuras diseñadas para dealers de volumen. Tu producción merece una comisión a la altura.</p></div>
+      <div class="benefit-card"><div class="benefit-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="benefit-title lang-fade" data-key="ben.b2t">Instalaciones Sin Retrasos</div><p class="benefit-desc lang-fade" data-key="ben.b2d">Timelines predecibles. No pierdas clientes por esperas que no puedes controlar.</p></div>
+      <div class="benefit-card"><div class="benefit-icon"><i class="fa-solid fa-phone-flip"></i></div><div class="benefit-title lang-fade" data-key="ben.b3t">Acceso Directo a Tu Rep</div><p class="benefit-desc lang-fade" data-key="ben.b3d">Un punto de contacto dedicado. Respuestas rápidas cuando más lo necesitas.</p></div>
+      <div class="benefit-card"><div class="benefit-icon"><i class="fa-solid fa-eye"></i></div><div class="benefit-title lang-fade" data-key="ben.b4t">Visibilidad Total</div><p class="benefit-desc lang-fade" data-key="ben.b4d">Tracking de proyectos en tiempo real. Sin sorpresas ni excusas de último minuto.</p></div>
+      <div class="benefit-card"><div class="benefit-icon"><i class="fa-solid fa-handshake"></i></div><div class="benefit-title lang-fade" data-key="ben.b5t">Socio de Largo Plazo</div><p class="benefit-desc lang-fade" data-key="ben.b5d">No buscamos dealers de un mes. Queremos construir relaciones sólidas y de crecimiento mutuo.</p></div>
+      <div class="benefit-card"><div class="benefit-icon"><i class="fa-solid fa-solar-panel"></i></div><div class="benefit-title lang-fade" data-key="ben.b6t">Full-Service EPC</div><p class="benefit-desc lang-fade" data-key="ben.b6d">Ingeniería, permisos, procurement e instalación. Tú vendes, nosotros ejecutamos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FILTER ── -->
+<section class="filter">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow lang-fade" data-key="fil.eyebrow">Antes de aplicar</div>
+      <h2 class="section-title lang-fade" data-key="fil.title">Sé Honesto<br>Contigo Mismo</h2>
+      <p class="section-desc lang-fade" style="margin:0 auto" data-key="fil.desc">Este programa no es para todo el mundo. Te pedimos que leas esto con cuidado antes de continuar.</p>
+    </div>
+    <div class="filter-grid">
+      <div class="filter-card no">
+        <div class="filter-heading no">
+          <i class="fa-solid fa-circle-xmark" style="font-size:15px;color:rgba(255,255,255,0.5)"></i>
+          <span class="lang-fade" data-key="fil.noTitle">Esto NO es para ti si…</span>
+        </div>
+        <ul class="filter-list">
+          <li><i class="fa-solid fa-xmark fi" style="color:rgba(255,255,255,0.5)"></i><span class="lang-fade" data-key="fil.no1">Acabas de entrar a ventas solares y no tienes proyectos</span></li>
+          <li><i class="fa-solid fa-xmark fi" style="color:rgba(255,255,255,0.5)"></i><span class="lang-fade" data-key="fil.no2">No estás vendiendo actualmente ni tienes pipeline activo</span></li>
+          <li><i class="fa-solid fa-xmark fi" style="color:rgba(255,255,255,0.5)"></i><span class="lang-fade" data-key="fil.no3">Solo estás "explorando" sin intención real de cambiar</span></li>
+          <li><i class="fa-solid fa-xmark fi" style="color:rgba(255,255,255,0.5)"></i><span class="lang-fade" data-key="fil.no4">No puedes enviar proyectos en los próximos 30 días</span></li>
+          <li><i class="fa-solid fa-xmark fi" style="color:rgba(255,255,255,0.5)"></i><span class="lang-fade" data-key="fil.no5">No estás dispuesto a seguir procesos de instalación</span></li>
+          <li><i class="fa-solid fa-xmark fi" style="color:rgba(255,255,255,0.5)"></i><span class="lang-fade" data-key="fil.no6">Buscas cualquier EPC sin importar calidad ni relación</span></li>
+        </ul>
+      </div>
+      <div class="filter-card yes">
+        <div class="filter-heading yes">
+          <i class="fa-solid fa-circle-check" style="font-size:15px;color:#F07545"></i>
+          <span class="lang-fade" data-key="fil.yesTitle">Esto SÍ es para ti si…</span>
+        </div>
+        <ul class="filter-list">
+          <li><i class="fa-solid fa-check fi" style="color:#F07545"></i><span class="lang-fade" data-key="fil.yes1">Ya estás cerrando ventas solares con consistencia</span></li>
+          <li><i class="fa-solid fa-check fi" style="color:#F07545"></i><span class="lang-fade" data-key="fil.yes2">Tu EPC actual te frena con retrasos y falta de soporte</span></li>
+          <li><i class="fa-solid fa-check fi" style="color:#F07545"></i><span class="lang-fade" data-key="fil.yes3">Quieres mejores comisiones y más transparencia</span></li>
+          <li><i class="fa-solid fa-check fi" style="color:#F07545"></i><span class="lang-fade" data-key="fil.yes4">Puedes enviar proyectos en los próximos 30 días</span></li>
+          <li><i class="fa-solid fa-check fi" style="color:#F07545"></i><span class="lang-fade" data-key="fil.yes5">Tienes equipo o estás listo para escalar tu volumen</span></li>
+          <li><i class="fa-solid fa-check fi" style="color:#F07545"></i><span class="lang-fade" data-key="fil.yes6">Buscas un socio serio, no solo otro instalador</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO ── -->
+<section class="who">
+  <div class="container">
+    <div>
+      <div class="section-eyebrow lang-fade" data-key="who.eyebrow">Perfil del dealer ideal</div>
+      <h2 class="section-title lang-fade" data-key="who.title">¿Eres Uno<br>De Estos Perfiles?</h2>
+      <p class="section-desc lang-fade" style="margin:0 auto" data-key="who.desc">Trabajamos con representantes y organizaciones que operan con estándares altos. Estos son los perfiles que buscamos:</p>
+    </div>
+    <div class="profile-tags">
+      <div class="ptag lang-fade" data-key="who.p1">Dealer Independiente</div>
+      <div class="ptag lang-fade" data-key="who.p2">Closer con Experiencia</div>
+      <div class="ptag lang-fade" data-key="who.p3">Setter Avanzado</div>
+      <div class="ptag lang-fade" data-key="who.p4">Organización de Ventas Solar</div>
+      <div class="ptag lang-fade" data-key="who.p5">Rep con Equipo Propio</div>
+      <div class="ptag lang-fade" data-key="who.p6">D2D con Volumen</div>
+      <div class="ptag lang-fade" data-key="who.p7">Dealer con Pipeline Activo</div>
+      <div class="ptag lang-fade" data-key="who.p8">Rep Buscando Mejor EPC</div>
+    </div>
+    <div class="exclusivity-box">
+      <p class="lang-fade" data-key="who.exclusive">Solo aceptamos un <strong>número limitado de dealers por estado</strong>. No buscamos volumen sin calidad. Buscamos representantes comprometidos a operar a alto nivel — y a crecer con nosotros.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CATALOG: EQUIPMENT / FINANCING / BATTERIES ── -->
+<section class="catalog">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow lang-fade" data-key="cat.eyebrow">Lo que ofrecemos</div>
+      <h2 class="section-title lang-fade" data-key="cat.title">Equipos, Financiamiento<br>y Baterías</h2>
+      <p class="section-desc lang-fade" style="margin:0 auto" data-key="cat.desc">Todo lo que necesitas para cerrar más proyectos con confianza. Conoce los paquetes, opciones de financiamiento y soluciones de almacenamiento disponibles.</p>
+    </div>
+
+    <!-- TAB NAV -->
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="showTab('equipment', this)">
+        <i class="fa-solid fa-solar-panel"></i>
+        <span class="lang-fade" data-key="cat.tab1">Equipos</span>
+      </button>
+      <button class="tab-btn" onclick="showTab('financing', this)">
+        <i class="fa-solid fa-credit-card"></i>
+        <span class="lang-fade" data-key="cat.tab2">Financiamiento</span>
+      </button>
+      <button class="tab-btn" onclick="showTab('batteries', this)">
+        <i class="fa-solid fa-battery-full"></i>
+        <span class="lang-fade" data-key="cat.tab3">Baterías</span>
+      </button>
+    </div>
+
+    <!-- TAB: EQUIPMENT -->
+    <div class="tab-panel active" id="tab-equipment">
+      <div class="pkg-grid">
+
+        <!-- LightReach Package -->
+        <div class="pkg-card">
+          <div class="pkg-header">
+            <div class="pkg-icon"><i class="fa-solid fa-sun"></i></div>
+            <div>
+              <div class="pkg-name">LightReach Package</div>
+              <div class="pkg-type lang-fade" data-key="cat.lease">Lease</div>
+            </div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-includes lang-fade" data-key="cat.includes">Incluye</div>
+            <ul class="pkg-items">
+              <li><i class="fa-solid fa-check"></i><span><strong>QCells AC Module 430W</strong> — All-black-on-black</span></li>
+              <li><i class="fa-solid fa-check"></i><span><strong lang-fade" data-key="cat.racking">Racking</strong> IronRidge</span></li>
+              <li><i class="fa-solid fa-check"></i><span><strong lang-fade" data-key="cat.micro">Micro Inversores</strong> Q.MI.349B-G</span></li>
+            </ul>
+            <div class="pkg-full-label">
+              <i class="fa-solid fa-circle-check"></i>
+              <span class="lang-fade" data-key="cat.fullservice">Ingeniería · Permisos · Procurement · Instalación · Inspecciones · PTO · Monitoreo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Climate First Package -->
+        <div class="pkg-card">
+          <div class="pkg-header">
+            <div class="pkg-icon"><i class="fa-solid fa-leaf"></i></div>
+            <div>
+              <div class="pkg-name">Climate First Package</div>
+              <div class="pkg-type lang-fade" data-key="cat.loan">Préstamo (Loan)</div>
+            </div>
+          </div>
+          <div class="pkg-body">
+            <div class="pkg-includes lang-fade" data-key="cat.includes">Incluye</div>
+            <ul class="pkg-items">
+              <li><i class="fa-solid fa-check"></i><span><strong>APTOS 460W</strong> — All-black-on-black</span></li>
+              <li><i class="fa-solid fa-check"></i><span><strong class="lang-fade" data-key="cat.racking">Racking</strong> K2</span></li>
+              <li><i class="fa-solid fa-check"></i><span><strong class="lang-fade" data-key="cat.micro">Micro Inversores</strong> MAC-800 2:1</span></li>
+            </ul>
+            <div class="pkg-full-label">
+              <i class="fa-solid fa-circle-check"></i>
+              <span class="lang-fade" data-key="cat.fullservice">Ingeniería · Permisos · Procurement · Instalación · Inspecciones · PTO · Monitoreo</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Upgrades -->
+      <div class="upgrades-row">
+        <div class="upgrades-title">
+          <i class="fa-solid fa-plus-circle"></i>
+          <span class="lang-fade" data-key="cat.upgrades">Upgrades Opcionales</span>
+        </div>
+        <div class="upgrades-list">
+          <div class="upgrade-tag"><i class="fa-solid fa-microchip"></i> Enphase Microinverters</div>
+          <div class="upgrade-tag"><i class="fa-solid fa-plug-circle-bolt"></i> Q.tron w/ AC Inverter Combo</div>
+          <div class="upgrade-tag"><i class="fa-solid fa-magnifying-glass-location"></i> <span class="lang-fade" data-key="cat.survey">Site Survey Profesional</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: FINANCING -->
+    <div class="tab-panel" id="tab-financing">
+      <div class="fin-grid">
+
+        <div class="fin-card">
+          <div class="fin-logo">Sunraise</div>
+          <div class="fin-type-badge">Lease</div>
+          <div class="fin-covers-label lang-fade" data-key="cat.covers">Cubre</div>
+          <div class="fin-covers">
+            <div class="fin-cover-tag"><i class="fa-solid fa-solar-panel"></i> Solar</div>
+            <div class="fin-cover-tag"><i class="fa-solid fa-battery-full"></i> <span class="lang-fade" data-key="cat.battery">Batería</span></div>
+            <div class="fin-cover-tag"><i class="fa-solid fa-bolt"></i> Solar + <span class="lang-fade" data-key="cat.battery">Batería</span></div>
+          </div>
+        </div>
+
+        <div class="fin-card">
+          <div class="fin-logo">Climate First</div>
+          <div class="fin-type-badge lang-fade" data-key="cat.loantype">Préstamo (Loan)</div>
+          <div class="fin-covers-label lang-fade" data-key="cat.covers">Cubre</div>
+          <div class="fin-covers">
+            <div class="fin-cover-tag"><i class="fa-solid fa-solar-panel"></i> Solar</div>
+            <div class="fin-cover-tag"><i class="fa-solid fa-battery-full"></i> <span class="lang-fade" data-key="cat.battery">Batería</span></div>
+            <div class="fin-cover-tag"><i class="fa-solid fa-bolt"></i> Solar + <span class="lang-fade" data-key="cat.battery">Batería</span></div>
+          </div>
+        </div>
+
+        <div class="fin-card">
+          <div class="fin-logo">Figure Finance</div>
+          <div class="fin-type-badge lang-fade" data-key="cat.cashtype">Cash / Préstamo Personal</div>
+          <div class="fin-covers-label lang-fade" data-key="cat.covers">Cubre</div>
+          <div class="fin-covers">
+            <div class="fin-cover-tag"><i class="fa-solid fa-money-bill-wave"></i> <span class="lang-fade" data-key="cat.cashequiv">Compra equivalente a cash</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB: BATTERIES -->
+    <div class="tab-panel" id="tab-batteries">
+      <div class="bat-grid">
+
+        <div class="bat-card">
+          <div class="bat-brand">Franklin A Power 2</div>
+          <div class="bat-kwh">13.5 <span>kWh</span></div>
+          <div class="bat-feature"><i class="fa-solid fa-house-signal"></i> <span class="lang-fade" data-key="cat.whb">Whole Home Backup</span></div>
+          <div class="bat-configs">
+            <div class="bat-config">1 <span class="lang-fade" data-key="cat.unit">unidad</span></div>
+            <div class="bat-config">2 <span class="lang-fade" data-key="cat.units">unidades</span></div>
+            <div class="bat-config">3 <span class="lang-fade" data-key="cat.units">unidades</span></div>
+          </div>
+        </div>
+
+        <div class="bat-card">
+          <div class="bat-brand">EG4 PowerPro WallMount</div>
+          <div class="bat-kwh">14.3 <span>kWh</span></div>
+          <div class="bat-feature"><i class="fa-solid fa-house-signal"></i> <span class="lang-fade" data-key="cat.whb">Whole Home Backup</span></div>
+          <div class="bat-configs">
+            <div class="bat-config">1 <span class="lang-fade" data-key="cat.unit">unidad</span></div>
+            <div class="bat-config">2 <span class="lang-fade" data-key="cat.units">unidades</span></div>
+            <div class="bat-config">3 <span class="lang-fade" data-key="cat.units">unidades</span></div>
+          </div>
+        </div>
+
+        <div class="bat-card">
+          <div class="bat-brand">Enphase IQ Battery 5P</div>
+          <div class="bat-kwh" style="font-size:16px;margin:12px 0 4px"><span style="font-size:13px;color:rgba(255,255,255,0.55)" class="lang-fade" data-key="cat.enphase">Componentes Enphase incluidos</span></div>
+          <div class="bat-feature"><i class="fa-solid fa-plug"></i> <span class="lang-fade" data-key="cat.critload">Critical Load Panel</span></div>
+          <div class="bat-configs">
+            <div class="bat-config">1 <span class="lang-fade" data-key="cat.unit">unidad</span></div>
+            <div class="bat-config">2 <span class="lang-fade" data-key="cat.units">unidades</span></div>
+            <div class="bat-config">3 <span class="lang-fade" data-key="cat.units">unidades</span></div>
+          </div>
+        </div>
+
+        <div class="bat-card">
+          <div class="bat-brand">Tesla Powerwall 3</div>
+          <div class="bat-kwh">13.5 <span>kWh</span></div>
+          <div class="bat-feature"><i class="fa-solid fa-house-signal"></i> <span class="lang-fade" data-key="cat.whb">Whole Home Backup</span></div>
+          <div class="bat-configs">
+            <div class="bat-config">1 <span class="lang-fade" data-key="cat.unit">unidad</span></div>
+            <div class="bat-config">2 <span class="lang-fade" data-key="cat.units">unidades</span></div>
+            <div class="bat-config">3 <span class="lang-fade" data-key="cat.units">unidades</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:24px;padding:16px 20px;background:rgba(232,99,42,0.06);border:1px solid rgba(232,99,42,0.15);border-radius:8px;display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.5)">
+        <i class="fa-solid fa-circle-info" style="color:#E8632A;font-size:16px;flex-shrink:0"></i>
+        <span class="lang-fade" data-key="cat.batNote">Todas las baterías incluyen instalación completa y conexión de whole home backup. Disponibles en configuraciones de 1, 2 o 3 unidades según las necesidades del homeowner.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── URGENCY ── -->
+<div class="urgency-bar">
+  <i class="fa-solid fa-bolt"></i>
+  <span class="lang-fade" data-key="urgency">Cupos limitados por estado — Solicitudes revisadas en orden de llegada</span>
+</div>
+
+<!-- ── FORM ── -->
+<section class="form-section" id="form-anchor">
+  <div class="container">
+    <div class="form-intro">
+      <div class="section-eyebrow lang-fade" data-key="form.eyebrow">Aplicación Oficial</div>
+      <h2 class="section-title lang-fade" data-key="form.title">Aplica Para Convertirte<br>En Dealer Partner</h2>
+      <p class="section-desc lang-fade" data-key="form.desc">Completa esta aplicación con honestidad. Tu información es confidencial y será revisada por nuestro equipo. <strong style="color:#FFFFFF">Completar el formulario no garantiza acceso</strong> — solo los candidatos que califiquen serán contactados para agendar una llamada.</p>
+      <p style="color:#E8632A;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-top:12px" class="lang-fade" data-key="form.time"><i class="fa-regular fa-clock"></i> La aplicación toma menos de 4 minutos</p>
+    </div>
+
+    <div class="form-card">
+
+      <!-- P1 -->
+      <div class="form-part">
+        <div class="form-part-title"><div class="form-part-num">1</div><span class="lang-fade" data-key="f1.title">Información Básica</span></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label lang-fade" data-key="f1.name">Nombre Completo</label><input type="text" class="ph-input" data-ph-key="f1.namePH" placeholder="Tu nombre y apellido"></div>
+          <div class="form-group"><label class="form-label lang-fade" data-key="f1.phone">Número de Teléfono</label><input type="tel" placeholder="+1 (000) 000-0000"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label lang-fade" data-key="f1.email">Correo Electrónico</label><input type="email" class="ph-input" data-ph-key="f1.emailPH" placeholder="tu@correo.com"></div>
+          <div class="form-group"><label class="form-label lang-fade" data-key="f1.city">Ciudad y Estado</label><input type="text" class="ph-input" data-ph-key="f1.cityPH" placeholder="Ej: Orlando, FL"></div>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="form-part">
+        <div class="form-part-title"><div class="form-part-num">2</div><span class="lang-fade" data-key="f2.title">Experiencia en Solar</span></div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f2.q1">¿Tienes experiencia en ventas de energía solar?</label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="exp" value="2+"><span class="lang-fade" data-key="f2.q1a">Sí — Más de 2 años</span></label>
+            <label class="opt"><input type="radio" name="exp" value="less2"><span class="lang-fade" data-key="f2.q1b">Sí — Menos de 2 años</span></label>
+            <label class="opt"><input type="radio" name="exp" value="none"><span class="lang-fade" data-key="f2.q1c">No (estoy empezando)</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f2.q2">¿Actualmente estás vendiendo energía solar?</label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="selling" value="full"><span class="lang-fade" data-key="f2.q2a">Sí (tiempo completo)</span></label>
+            <label class="opt"><input type="radio" name="selling" value="part"><span class="lang-fade" data-key="f2.q2b">Sí (medio tiempo)</span></label>
+            <label class="opt"><input type="radio" name="selling" value="no"><span class="lang-fade" data-key="f2.q2c">No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f2.q3">¿Cuántos proyectos has cerrado en los últimos 6 meses?</label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="projects" value="20+"><span>20+</span></label>
+            <label class="opt"><input type="radio" name="projects" value="10-20"><span>10–20</span></label>
+            <label class="opt"><input type="radio" name="projects" value="5-10"><span>5–10</span></label>
+            <label class="opt"><input type="radio" name="projects" value="1-5"><span>1–5</span></label>
+            <label class="opt"><input type="radio" name="projects" value="0"><span>0</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="form-part">
+        <div class="form-part-title"><div class="form-part-num">3</div><span class="lang-fade" data-key="f3.title">Volumen de Producción</span></div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f3.q1">¿Cuál es tu volumen promedio mensual?</label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="volume" value="10+"><span class="lang-fade" data-key="f3.q1a">10+ instalaciones/mes</span></label>
+            <label class="opt"><input type="radio" name="volume" value="5-10"><span class="lang-fade" data-key="f3.q1b">5–10 instalaciones/mes</span></label>
+            <label class="opt"><input type="radio" name="volume" value="1-5"><span class="lang-fade" data-key="f3.q1c">1–5 instalaciones/mes</span></label>
+            <label class="opt"><input type="radio" name="volume" value="0"><span class="lang-fade" data-key="f3.q1d">0 actualmente</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f3.q2">¿Qué tipo de comisión o redline manejas actualmente?</label>
+          <input type="text" class="ph-input" data-ph-key="f3.q2PH" placeholder="Ej: $0.40/W redline, comisión fija…">
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div class="form-part">
+        <div class="form-part-title"><div class="form-part-num">4</div><span class="lang-fade" data-key="f4.title">Infraestructura de Ventas</span></div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f4.q1">¿Tienes un equipo de ventas?</label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="team" value="5+"><span class="lang-fade" data-key="f4.q1a">Sí (5+ vendedores)</span></label>
+            <label class="opt"><input type="radio" name="team" value="1-5"><span class="lang-fade" data-key="f4.q1b">Sí (1–5 vendedores)</span></label>
+            <label class="opt"><input type="radio" name="team" value="solo"><span class="lang-fade" data-key="f4.q1c">No (trabajo solo)</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f4.q2">¿Cómo generas tus leads?</label>
+          <div class="check-group">
+            <label class="opt"><input type="checkbox" value="paid"><span class="lang-fade" data-key="f4.q2a">Anuncios pagados (Facebook, Google, etc.)</span></label>
+            <label class="opt"><input type="checkbox" value="d2d"><span class="lang-fade" data-key="f4.q2b">Puerta a puerta (D2D)</span></label>
+            <label class="opt"><input type="checkbox" value="ref"><span class="lang-fade" data-key="f4.q2c">Referidos</span></label>
+            <label class="opt"><input type="checkbox" value="no"><span class="lang-fade" data-key="f4.q2d">No genero leads propios actualmente</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f4.q3">¿En qué estados estás operando actualmente?</label>
+          <input type="text" class="ph-input" data-ph-key="f4.q3PH" placeholder="Ej: FL, CT, MA, TX…">
+        </div>
+      </div>
+
+      <!-- P5 -->
+      <div class="form-part">
+        <div class="form-part-title"><div class="form-part-num">5</div><span class="lang-fade" data-key="f5.title">Tu Intención</span></div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f5.q1">¿Por qué estás buscando un nuevo EPC o instalador?</label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="reason" value="commissions"><span class="lang-fade" data-key="f5.q1a">Quiero mejores comisiones</span></label>
+            <label class="opt"><input type="radio" name="reason" value="speed"><span class="lang-fade" data-key="f5.q1b">Necesito instalaciones más rápidas</span></label>
+            <label class="opt"><input type="radio" name="reason" value="support"><span class="lang-fade" data-key="f5.q1c">Quiero mejor soporte operativo</span></label>
+            <label class="opt"><input type="radio" name="reason" value="problems"><span class="lang-fade" data-key="f5.q1d">Tengo problemas con mi EPC actual</span></label>
+            <label class="opt"><input type="radio" name="reason" value="exploring"><span class="lang-fade" data-key="f5.q1e">Solo estoy explorando opciones</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f5.q2">¿Qué estás buscando en tu próximo socio EPC?</label>
+          <textarea class="ph-input" data-ph-key="f5.q2PH" placeholder="Cuéntanos qué es más importante para ti…"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f5.q3">¿Qué tan pronto te gustaría hacer el cambio?</label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="timeline" value="now"><span class="lang-fade" data-key="f5.q3a">Inmediatamente</span></label>
+            <label class="opt"><input type="radio" name="timeline" value="30d"><span class="lang-fade" data-key="f5.q3b">Dentro de 30 días</span></label>
+            <label class="opt"><input type="radio" name="timeline" value="3m"><span class="lang-fade" data-key="f5.q3c">En 1–3 meses</span></label>
+            <label class="opt"><input type="radio" name="timeline" value="research"><span class="lang-fade" data-key="f5.q3d">Solo investigando por ahora</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div class="form-part">
+        <div class="form-part-title"><div class="form-part-num">6</div><span class="lang-fade" data-key="f6.title">Compromiso</span></div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f6.q1">Si eres aprobado, ¿estás listo para enviar proyectos en los próximos 30 días?</label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="ready30" value="yes"><span class="lang-fade" data-key="f6.q1a">Sí, estoy listo</span></label>
+            <label class="opt"><input type="radio" name="ready30" value="no"><span class="lang-fade" data-key="f6.q1b">No todavía</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f6.q2">¿Estás dispuesto a seguir nuestros procesos y lineamientos de instalación?</label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="process" value="yes"><span class="lang-fade" data-key="f6.q2a">Sí, sin problema</span></label>
+            <label class="opt"><input type="radio" name="process" value="no"><span class="lang-fade" data-key="f6.q2b">No estoy seguro</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- P7 -->
+      <div class="form-part">
+        <div class="form-part-title"><div class="form-part-num">7</div><span class="lang-fade" data-key="f7.title">Información Adicional</span></div>
+        <div class="form-group">
+          <label class="form-label lang-fade" data-key="f7.q1">¿Hay algo más que debamos saber sobre tu experiencia o situación?</label>
+          <textarea class="ph-input" data-ph-key="f7.q1PH" placeholder="Opcional — cualquier contexto adicional…"></textarea>
+        </div>
+      </div>
+
+      <!-- CTA BLOCK -->
+      <div class="cta-block" id="ctaBlock">
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px" class="lang-fade" data-key="cta.header">Al enviar esta aplicación, entiendes que:</p>
+        <ul class="cta-conditions">
+          <li class="lang-fade" data-key="cta.c1"><i class="fa-solid fa-circle-arrow-right cond-icon"></i><span>Completar el formulario <strong style="color:#FFFFFF">no garantiza</strong> acceso al programa.</span></li>
+          <li class="lang-fade" data-key="cta.c2"><i class="fa-solid fa-circle-arrow-right cond-icon"></i><span>Tu solicitud será revisada individualmente por nuestro equipo.</span></li>
+          <li class="lang-fade" data-key="cta.c3"><i class="fa-solid fa-circle-arrow-right cond-icon"></i><span>Solo los candidatos calificados recibirán enlace para agendar llamada.</span></li>
+          <li class="lang-fade" data-key="cta.c4"><i class="fa-solid fa-circle-arrow-right cond-icon"></i><span>Si no eres contactado en 48 horas hábiles, tu perfil no avanzó en esta ronda.</span></li>
+        </ul>
+        <button class="submit-btn lang-fade" data-key="cta.btn" type="button" onclick="handleSubmit()">Enviar Mi Aplicación <i class="fa-solid fa-arrow-right"></i></button>
+        <p class="legal-note lang-fade" data-key="cta.legal">Tu información es confidencial. No la compartimos con terceros ni la usamos para spam.<br>Al enviar, confirmas que la información proporcionada es verídica.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img src="https://assets.cdn.filesafe.space/b8p0C5reCGjcLB5v8PvO/media/69e01789028a57ebb728e032.png" alt="New Era Solar Energy">
+      </div>
+      <p class="footer-desc lang-fade" data-key="footer.desc">EPC full-service para organizaciones de ventas solares. Ingeniería, permisos, procurement e instalación — para que tu equipo solo se enfoque en cerrar.</p>
+      <div class="footer-contact">
+        <a href="tel:+13213813192"><i class="fa-solid fa-phone"></i>(321) 381-3192</a>
+        <a href="mailto:info@newerasolarenergy.com"><i class="fa-solid fa-envelope"></i>info@newerasolarenergy.com</a>
+        <a href="#"><i class="fa-solid fa-location-dot"></i>Orlando, FL 32804</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title lang-fade" data-key="footer.col1">Programa de Dealers</div>
+      <ul class="footer-links">
+        <li><a href="https://newerasolarenergy.com/why-new-era-solar-energy/" class="lang-fade" data-key="footer.l1">Por Qué New Era Solar</a></li>
+        <li><a href="https://newerasolarenergy.com/our-process/" class="lang-fade" data-key="footer.l2">Nuestro Proceso</a></li>
+        <li><a href="https://newerasolarenergy.com/testimonials/" class="lang-fade" data-key="footer.l3">Testimonios</a></li>
+        <li><a href="#form-anchor" class="lang-fade" data-key="footer.l4">Aplicar Ahora</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="https://newerasolarenergy.com/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="https://newerasolarenergy.com/terms-of-service/">Terms of Service</a></li>
+        <li><a href="https://newerasolarenergy.com/contact-us/" class="lang-fade" data-key="footer.contact">Contáctanos</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="lang-fade" data-key="footer.copy">© 2025 New Era Solar Energy LLC. Todos los derechos reservados.</p>
+    <p>FL License #CCC1336652 · Veteran-Owned Business</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const T = {
+es:{
+  "nav.why":"Por Qué Nosotros","nav.process":"Nuestro Proceso","nav.testimonials":"Testimonios","nav.apply":"Aplicar Ahora",
+  "hero.badge":"Programa de Dealers — Cupos Limitados",
+  "hero.h1":"Tu EPC Actual<br>Te Está <em>Costando</em><br>Proyectos.",
+  "hero.sub":"New Era Solar Energy busca <strong>representantes solares con experiencia</strong> que quieran mejores comisiones, instalaciones más rápidas y un socio EPC que realmente cumpla. Si ya estás cerrando, esta es tu oportunidad.",
+  "hero.cta":"Aplicar al Programa de Dealers","hero.note":"La aplicación toma menos de 4 minutos · Solo candidatos calificados avanzan",
+  "stats.installs":"Instalaciones Rápidas","stats.fullservice":"Socio Full-Service",
+  "cred.eyebrow":"Por qué New Era Solar Energy","cred.title":"Un EPC Que Respalda<br>A Sus Dealers",
+  "cred.desc":"Somos un EPC full-service: nos encargamos de la ingeniería, permisos, procurement y construcción. Tu equipo solo necesita enfocarse en cerrar. Nosotros nos encargamos del resto.",
+  "cred.veteran":"Empresa de <strong>propiedad veterana</strong> — Integridad, Calidad y Servicio",
+  "cred.c1t":"Instalaciones Rápidas","cred.c1d":"La mayoría de instalaciones se completan en un día después de permisos.",
+  "cred.c2t":"Soporte Directo","cred.c2d":"Rep de cuenta dedicado. Sin correos sin respuesta, sin esperas de días.",
+  "cred.c3t":"Procesos Transparentes","cred.c3d":"Sabes en qué etapa está cada proyecto en tiempo real.",
+  "cred.c4t":"Capacidad de Escalar","cred.c4d":"Infraestructura para manejar dealers de alto volumen. Crecemos juntos.",
+  "ben.eyebrow":"Lo que obtienes como dealer","ben.title":"Lo Que Significa Tener<br>Un EPC De Verdad",
+  "ben.b1t":"Comisiones Competitivas","ben.b1d":"Estructuras diseñadas para dealers de volumen. Tu producción merece una comisión a la altura.",
+  "ben.b2t":"Instalaciones Sin Retrasos","ben.b2d":"Timelines predecibles. No pierdas clientes por esperas que no puedes controlar.",
+  "ben.b3t":"Acceso Directo a Tu Rep","ben.b3d":"Un punto de contacto dedicado. Respuestas rápidas cuando más lo necesitas.",
+  "ben.b4t":"Visibilidad Total","ben.b4d":"Tracking de proyectos en tiempo real. Sin sorpresas ni excusas de último minuto.",
+  "ben.b5t":"Socio de Largo Plazo","ben.b5d":"No buscamos dealers de un mes. Queremos construir relaciones sólidas y de crecimiento mutuo.",
+  "ben.b6t":"Full-Service EPC","ben.b6d":"Ingeniería, permisos, procurement e instalación. Tú vendes, nosotros ejecutamos.",
+  "fil.eyebrow":"Antes de aplicar","fil.title":"Sé Honesto<br>Contigo Mismo",
+  "fil.desc":"Este programa no es para todo el mundo. Te pedimos que leas esto con cuidado antes de continuar.",
+  "fil.noTitle":"Esto NO es para ti si...","fil.yesTitle":"Esto SÍ es para ti si...",
+  "fil.no1":"Acabas de entrar a ventas solares y no tienes proyectos",
+  "fil.no2":"No estás vendiendo actualmente ni tienes pipeline activo",
+  "fil.no3":"Solo estás explorando sin intención real de cambiar",
+  "fil.no4":"No puedes enviar proyectos en los próximos 30 días",
+  "fil.no5":"No estás dispuesto a seguir procesos de instalación",
+  "fil.no6":"Buscas cualquier EPC sin importar calidad ni relación",
+  "fil.yes1":"Ya estás cerrando ventas solares con consistencia",
+  "fil.yes2":"Tu EPC actual te frena con retrasos y falta de soporte",
+  "fil.yes3":"Quieres mejores comisiones y más transparencia",
+  "fil.yes4":"Puedes enviar proyectos en los próximos 30 días",
+  "fil.yes5":"Tienes equipo o estás listo para escalar tu volumen",
+  "fil.yes6":"Buscas un socio serio, no solo otro instalador",
+  "who.eyebrow":"Perfil del dealer ideal","who.title":"¿Eres Uno<br>De Estos Perfiles?",
+  "who.desc":"Trabajamos con representantes y organizaciones que operan con estándares altos. Estos son los perfiles que buscamos:",
+  "who.p1":"Dealer Independiente","who.p2":"Closer con Experiencia","who.p3":"Setter Avanzado",
+  "who.p4":"Organización de Ventas Solar","who.p5":"Rep con Equipo Propio","who.p6":"D2D con Volumen",
+  "who.p7":"Dealer con Pipeline Activo","who.p8":"Rep Buscando Mejor EPC",
+  "who.exclusive":"Solo aceptamos un <strong>número limitado de dealers por estado</strong>. No buscamos volumen sin calidad. Buscamos representantes comprometidos a operar a alto nivel — y a crecer con nosotros.",
+  "urgency":"Cupos limitados por estado — Solicitudes revisadas en orden de llegada",
+  "cat.eyebrow":"Lo que ofrecemos","cat.title":"Equipos, Financiamiento<br>y Baterías",
+  "cat.desc":"Todo lo que necesitas para cerrar más proyectos con confianza. Conoce los paquetes, opciones de financiamiento y soluciones de almacenamiento disponibles.",
+  "cat.tab1":"Equipos","cat.tab2":"Financiamiento","cat.tab3":"Baterías",
+  "cat.lease":"Lease","cat.loan":"Préstamo (Loan)","cat.includes":"Incluye",
+  "cat.racking":"Racking","cat.micro":"Micro Inversores",
+  "cat.fullservice":"Ingeniería · Permisos · Procurement · Instalación · Inspecciones · PTO · Monitoreo",
+  "cat.upgrades":"Upgrades Opcionales","cat.survey":"Site Survey Profesional",
+  "cat.covers":"Cubre","cat.battery":"Batería","cat.loantype":"Préstamo (Loan)",
+  "cat.cashtype":"Cash / Préstamo Personal","cat.cashequiv":"Compra equivalente a cash",
+  "cat.whb":"Whole Home Backup","cat.unit":"unidad","cat.units":"unidades",
+  "cat.enphase":"Componentes Enphase incluidos","cat.critload":"Critical Load Panel",
+  "cat.batNote":"Todas las baterías incluyen instalación completa y conexión de whole home backup. Disponibles en configuraciones de 1, 2 o 3 unidades según las necesidades del homeowner.",
+  "form.eyebrow":"Aplicación Oficial","form.title":"Aplica Para Convertirte<br>En Dealer Partner",
+  "form.desc":"Completa esta aplicación con honestidad. Tu información es confidencial y será revisada por nuestro equipo. Completar el formulario no garantiza acceso — solo los candidatos que califiquen serán contactados para agendar una llamada.",
+  "form.time":"⏱ La aplicación toma menos de 4 minutos",
+  "f1.title":"Información Básica","f1.name":"Nombre Completo","f1.namePH":"Tu nombre y apellido",
+  "f1.phone":"Número de Teléfono","f1.email":"Correo Electrónico","f1.emailPH":"tu@correo.com",
+  "f1.city":"Ciudad y Estado","f1.cityPH":"Ej: Orlando, FL",
+  "f2.title":"Experiencia en Solar","f2.q1":"¿Tienes experiencia en ventas de energía solar?",
+  "f2.q1a":"Sí — Más de 2 años","f2.q1b":"Sí — Menos de 2 años","f2.q1c":"No (estoy empezando)",
+  "f2.q2":"¿Actualmente estás vendiendo energía solar?",
+  "f2.q2a":"Sí (tiempo completo)","f2.q2b":"Sí (medio tiempo)","f2.q2c":"No",
+  "f2.q3":"¿Cuántos proyectos has cerrado en los últimos 6 meses?",
+  "f3.title":"Volumen de Producción","f3.q1":"¿Cuál es tu volumen promedio mensual?",
+  "f3.q1a":"10+ instalaciones/mes","f3.q1b":"5-10 instalaciones/mes",
+  "f3.q1c":"1-5 instalaciones/mes","f3.q1d":"0 actualmente",
+  "f3.q2":"¿Qué tipo de comisión o redline manejas actualmente?","f3.q2PH":"Ej: $0.40/W redline, comisión fija...",
+  "f4.title":"Infraestructura de Ventas","f4.q1":"¿Tienes un equipo de ventas?",
+  "f4.q1a":"Sí (5+ vendedores)","f4.q1b":"Sí (1-5 vendedores)","f4.q1c":"No (trabajo solo)",
+  "f4.q2":"¿Cómo generas tus leads?","f4.q2a":"Anuncios pagados (Facebook, Google, etc.)",
+  "f4.q2b":"Puerta a puerta (D2D)","f4.q2c":"Referidos","f4.q2d":"No genero leads propios actualmente",
+  "f4.q3":"¿En qué estados estás operando actualmente?","f4.q3PH":"Ej: FL, CT, MA, TX...",
+  "f5.title":"Tu Intención","f5.q1":"¿Por qué estás buscando un nuevo EPC o instalador?",
+  "f5.q1a":"Quiero mejores comisiones","f5.q1b":"Necesito instalaciones más rápidas",
+  "f5.q1c":"Quiero mejor soporte operativo","f5.q1d":"Tengo problemas con mi EPC actual",
+  "f5.q1e":"Solo estoy explorando opciones",
+  "f5.q2":"¿Qué estás buscando en tu próximo socio EPC?",
+  "f5.q2PH":"Cuéntanos qué es más importante para ti en un socio de largo plazo...",
+  "f5.q3":"¿Qué tan pronto te gustaría hacer el cambio?",
+  "f5.q3a":"Inmediatamente","f5.q3b":"Dentro de 30 días","f5.q3c":"En 1-3 meses","f5.q3d":"Solo investigando por ahora",
+  "f6.title":"Compromiso","f6.q1":"Si eres aprobado, ¿estás listo para enviar proyectos en los próximos 30 días?",
+  "f6.q1a":"Sí, estoy listo","f6.q1b":"No todavía",
+  "f6.q2":"¿Estás dispuesto a seguir nuestros procesos y lineamientos de instalación?",
+  "f6.q2a":"Sí, sin problema","f6.q2b":"No estoy seguro",
+  "f7.title":"Información Adicional","f7.q1":"¿Hay algo más que debamos saber sobre tu experiencia o situación?",
+  "f7.q1PH":"Opcional — cualquier contexto adicional que quieras compartir...",
+  "cta.header":"Al enviar esta aplicación, entiendes que:",
+  "cta.c1":"Completar el formulario no garantiza acceso al programa.",
+  "cta.c2":"Tu solicitud será revisada individualmente por nuestro equipo.",
+  "cta.c3":"Solo los candidatos calificados recibirán enlace para agendar llamada.",
+  "cta.c4":"Si no eres contactado en 48 horas hábiles, tu perfil no avanzó en esta ronda.",
+  "cta.btn":"Enviar Mi Aplicación →",
+  "cta.legal":"Tu información es confidencial. No la compartimos con terceros ni la usamos para spam. Al enviar, confirmas que la información proporcionada es verídica.",
+  "cta.successTitle":"¡Aplicación Recibida!",
+  "cta.successMsg":"Nuestro equipo revisará tu perfil. Si calificas, serás contactado en las próximas 48 horas hábiles con el enlace para agendar tu llamada.",
+  "footer.desc":"EPC full-service para organizaciones de ventas solares. Ingeniería, permisos, procurement e instalación — para que tu equipo solo se enfoque en cerrar.",
+  "footer.col1":"Programa de Dealers","footer.l1":"Por Qué New Era Solar","footer.l2":"Nuestro Proceso",
+  "footer.l3":"Testimonios","footer.l4":"Aplicar Ahora","footer.contact":"Contáctanos",
+  "footer.copy":"© 2025 New Era Solar Energy LLC. Todos los derechos reservados."
+},
+en:{
+  "nav.why":"Why New Era Solar","nav.process":"Our Process","nav.testimonials":"Testimonials","nav.apply":"Apply Now",
+  "hero.badge":"Dealer Program — Limited Spots",
+  "hero.h1":"Your Current EPC<br>Is <em>Costing</em> You<br>Deals.",
+  "hero.sub":"New Era Solar Energy is looking for <strong>experienced solar reps</strong> who want better commissions, faster installs, and an EPC partner that actually delivers. If you are already closing, this is your opportunity.",
+  "hero.cta":"Apply to the Dealer Program","hero.note":"Application takes less than 4 minutes · Only qualified candidates move forward",
+  "stats.installs":"Fast Installs","stats.fullservice":"Full-Service EPC",
+  "cred.eyebrow":"Why New Era Solar Energy","cred.title":"An EPC That Actually<br>Has Your Back",
+  "cred.desc":"We are a full-service EPC: we handle engineering, permitting, procurement, and construction. Your team just needs to focus on selling. We handle the rest.",
+  "cred.veteran":"<strong>Veteran-owned</strong> company — Integrity, Quality, and Service",
+  "cred.c1t":"Fast Installs","cred.c1d":"Most installations are completed in one day after permitting.",
+  "cred.c2t":"Direct Support","cred.c2d":"Dedicated account rep. No unanswered emails, no days of waiting.",
+  "cred.c3t":"Transparent Process","cred.c3d":"Know exactly where each project stands in real time.",
+  "cred.c4t":"Scalable Capacity","cred.c4d":"Infrastructure built for high-volume dealers. We grow together.",
+  "ben.eyebrow":"What you get as a dealer","ben.title":"What It Means to Have<br>A Real EPC Partner",
+  "ben.b1t":"Competitive Commissions","ben.b1d":"Structures built for volume dealers. Your production deserves a commission to match.",
+  "ben.b2t":"Installs Without Delays","ben.b2d":"Predictable timelines. Stop losing clients to delays you cannot control.",
+  "ben.b3t":"Direct Access to Your Rep","ben.b3d":"One dedicated point of contact. Fast answers when you need them most.",
+  "ben.b4t":"Full Visibility","ben.b4d":"Real-time project tracking. No surprises, no last-minute excuses.",
+  "ben.b5t":"Long-Term Partner","ben.b5d":"We are not looking for one-month dealers. We want lasting, growth-focused relationships.",
+  "ben.b6t":"Full-Service EPC","ben.b6d":"Engineering, permitting, procurement, and installation. You sell, we execute.",
+  "fil.eyebrow":"Before you apply","fil.title":"Be Honest<br>With Yourself",
+  "fil.desc":"This program is not for everyone. Please read this carefully before moving forward.",
+  "fil.noTitle":"This is NOT for you if...","fil.yesTitle":"This IS for you if...",
+  "fil.no1":"You just started in solar sales and do not have any projects",
+  "fil.no2":"You are not currently selling or have no active pipeline",
+  "fil.no3":"You are just exploring with no real intention to switch",
+  "fil.no4":"You cannot submit projects within the next 30 days",
+  "fil.no5":"You are not willing to follow installation processes and guidelines",
+  "fil.no6":"You are looking for any EPC regardless of quality or relationship",
+  "fil.yes1":"You are already closing solar deals consistently",
+  "fil.yes2":"Your current EPC is slowing you down with delays and poor support",
+  "fil.yes3":"You want better commissions and more transparency",
+  "fil.yes4":"You can submit projects within the next 30 days",
+  "fil.yes5":"You have a team or are ready to scale your volume",
+  "fil.yes6":"You are looking for a serious partner, not just another installer",
+  "who.eyebrow":"Ideal dealer profile","who.title":"Are You One<br>Of These Profiles?",
+  "who.desc":"We work with reps and sales organizations that operate at high standards. These are the profiles we are looking for:",
+  "who.p1":"Independent Dealer","who.p2":"Experienced Closer","who.p3":"Advanced Setter",
+  "who.p4":"Solar Sales Organization","who.p5":"Rep with Own Team","who.p6":"High-Volume D2D",
+  "who.p7":"Dealer with Active Pipeline","who.p8":"Rep Seeking Better EPC",
+  "who.exclusive":"We only accept a <strong>limited number of dealers per state</strong>. We are not looking for volume without quality. We want reps committed to operating at a high level — and growing with us.",
+  "urgency":"Limited spots per state — Applications reviewed in order received",
+  "cat.eyebrow":"What We Offer","cat.title":"Equipment, Financing<br>& Batteries",
+  "cat.desc":"Everything you need to close more projects with confidence. Explore available packages, financing options, and storage solutions.",
+  "cat.tab1":"Equipment","cat.tab2":"Financing","cat.tab3":"Batteries",
+  "cat.lease":"Lease","cat.loan":"Loan","cat.includes":"Includes",
+  "cat.racking":"Racking","cat.micro":"Microinverters",
+  "cat.fullservice":"Engineering · Permits · Procurement · Installation · Inspections · PTO · Monitoring",
+  "cat.upgrades":"Optional Upgrades","cat.survey":"Professional Site Survey",
+  "cat.covers":"Covers","cat.battery":"Battery","cat.loantype":"Loan",
+  "cat.cashtype":"Cash / Personal Loan","cat.cashequiv":"Cash-equivalent purchase",
+  "cat.whb":"Whole Home Backup","cat.unit":"unit","cat.units":"units",
+  "cat.enphase":"Enphase components included","cat.critload":"Critical Load Panel",
+  "cat.batNote":"All batteries include full installation and whole home backup connection. Available in 1, 2, or 3 unit configurations based on homeowner needs.",
+  "form.eyebrow":"Official Application","form.title":"Apply to Become<br>A Dealer Partner",
+  "form.desc":"Complete this application honestly. Your information is confidential and will be reviewed by our team. Submitting the form does not guarantee access — only qualified candidates will be contacted to schedule a call.",
+  "form.time":"⏱ Application takes less than 4 minutes",
+  "f1.title":"Basic Information","f1.name":"Full Name","f1.namePH":"Your first and last name",
+  "f1.phone":"Phone Number","f1.email":"Email Address","f1.emailPH":"you@email.com",
+  "f1.city":"City and State","f1.cityPH":"Ex: Orlando, FL",
+  "f2.title":"Solar Experience","f2.q1":"Do you have experience in solar energy sales?",
+  "f2.q1a":"Yes — More than 2 years","f2.q1b":"Yes — Less than 2 years","f2.q1c":"No (just starting)",
+  "f2.q2":"Are you currently selling solar energy?",
+  "f2.q2a":"Yes (full-time)","f2.q2b":"Yes (part-time)","f2.q2c":"No",
+  "f2.q3":"How many projects have you closed in the last 6 months?",
+  "f3.title":"Production Volume","f3.q1":"What is your average monthly volume?",
+  "f3.q1a":"10+ installs/month","f3.q1b":"5-10 installs/month",
+  "f3.q1c":"1-5 installs/month","f3.q1d":"0 currently",
+  "f3.q2":"What type of commission or redline do you currently work with?","f3.q2PH":"Ex: $0.40/W redline, flat fee...",
+  "f4.title":"Sales Infrastructure","f4.q1":"Do you have a sales team?",
+  "f4.q1a":"Yes (5+ reps)","f4.q1b":"Yes (1-5 reps)","f4.q1c":"No (I work solo)",
+  "f4.q2":"How do you generate your leads?","f4.q2a":"Paid ads (Facebook, Google, etc.)",
+  "f4.q2b":"Door-to-door (D2D)","f4.q2c":"Referrals","f4.q2d":"I do not generate my own leads currently",
+  "f4.q3":"What states are you currently operating in?","f4.q3PH":"Ex: FL, CT, MA, TX...",
+  "f5.title":"Your Intention","f5.q1":"Why are you looking for a new EPC or installer?",
+  "f5.q1a":"I want better commissions","f5.q1b":"I need faster installs",
+  "f5.q1c":"I want better operational support","f5.q1d":"I have problems with my current EPC",
+  "f5.q1e":"Just exploring options",
+  "f5.q2":"What are you looking for in your next EPC partner?",
+  "f5.q2PH":"Tell us what matters most to you in a long-term partner...",
+  "f5.q3":"How soon are you looking to make the switch?",
+  "f5.q3a":"Immediately","f5.q3b":"Within 30 days","f5.q3c":"1-3 months","f5.q3d":"Just researching for now",
+  "f6.title":"Commitment","f6.q1":"If approved, are you ready to submit projects within the next 30 days?",
+  "f6.q1a":"Yes, I am ready","f6.q1b":"Not yet",
+  "f6.q2":"Are you willing to follow our installation processes and guidelines?",
+  "f6.q2a":"Yes, no problem","f6.q2b":"I am not sure",
+  "f7.title":"Additional Information","f7.q1":"Is there anything else we should know about your experience or situation?",
+  "f7.q1PH":"Optional — any additional context you would like to share...",
+  "cta.header":"By submitting this application, you understand that:",
+  "cta.c1":"Completing the form does not guarantee access to the program.",
+  "cta.c2":"Your application will be reviewed individually by our team.",
+  "cta.c3":"Only qualified candidates will receive a link to schedule a call.",
+  "cta.c4":"If you are not contacted within 48 business hours, your profile did not advance in this round.",
+  "cta.btn":"Submit My Application →",
+  "cta.legal":"Your information is confidential. We do not share it with third parties or use it for spam. By submitting, you confirm that the information provided is accurate.",
+  "cta.successTitle":"Application Received!",
+  "cta.successMsg":"Our team will review your profile. If you qualify, you will be contacted within the next 48 business hours with the link to schedule your call.",
+  "footer.desc":"Full-service EPC for solar sales organizations. Engineering, permitting, procurement, and installation — so your team can focus on closing.",
+  "footer.col1":"Dealer Program","footer.l1":"Why New Era Solar","footer.l2":"Our Process",
+  "footer.l3":"Testimonials","footer.l4":"Apply Now","footer.contact":"Contact Us",
+  "footer.copy":"© 2025 New Era Solar Energy LLC. All rights reserved."
+}
+};
+
+let lang = 'es';
+
+function setLang(newLang) {
+  if (newLang === lang) return;
+  lang = newLang;
+
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  syncDrawerLang(lang);
+
+  document.body.classList.add('switching');
+
+  setTimeout(function() {
+    var d = T[lang];
+
+    document.querySelectorAll('.lang-fade[data-key]').forEach(function(el) {
+      var k = el.getAttribute('data-key');
+      if (d[k] !== undefined) el.innerHTML = d[k];
+    });
+
+    document.querySelectorAll('.ph-input[data-ph-key]').forEach(function(el) {
+      var k = el.getAttribute('data-ph-key');
+      if (d[k] !== undefined) el.placeholder = d[k];
+    });
+
+    document.title = lang === 'en'
+      ? 'Dealer Program | New Era Solar Energy'
+      : 'Programa de Dealers | New Era Solar Energy';
+
+    document.documentElement.lang = lang;
+    document.body.classList.remove('switching');
+  }, 180);
+}
+
+/* ── MOBILE MENU ── */
+function toggleMenu() {
+  var btn = document.getElementById('hamburger');
+  var drawer = document.getElementById('nav-drawer');
+  var isOpen = drawer.classList.contains('open');
+  drawer.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+
+document.addEventListener('click', function(e) {
+  var drawer = document.getElementById('nav-drawer');
+  var btn = document.getElementById('hamburger');
+  if (drawer && btn && !drawer.contains(e.target) && !btn.contains(e.target)) {
+    drawer.classList.remove('open');
+    btn.classList.remove('open');
+  }
+});
+
+function syncDrawerLang(l) {
+  var es = document.getElementById('drawer-btn-es');
+  var en = document.getElementById('drawer-btn-en');
+  if (es && en) {
+    es.classList.toggle('active', l === 'es');
+    en.classList.toggle('active', l === 'en');
+  }
+}
+
+
+document.querySelectorAll('.opt').forEach(function(label) {
+  var input = label.querySelector('input');
+  input.addEventListener('change', function() {
+    if (input.type === 'radio') {
+      document.querySelectorAll('input[name="' + input.name + '"]').forEach(function(r) {
+        r.closest('.opt').style.borderColor = '';
+        r.closest('.opt').style.background = '';
+        r.closest('.opt').style.color = '';
+      });
+    }
+    if (input.checked) {
+      label.style.borderColor = 'rgba(232,99,42,0.5)';
+      label.style.background = 'rgba(232,99,42,0.08)';
+      label.style.color = '#1A2535';
+    } else {
+      label.style.borderColor = '';
+      label.style.background = '';
+      label.style.color = '';
+    }
+  });
+});
+
+function handleSubmit() {
+  var d = T[lang];
+  document.getElementById('ctaBlock').innerHTML =
+    '<div style="padding:28px;text-align:center">' +
+    '<div style="font-size:48px;margin-bottom:16px;color:#E8632A"><i class="fa-solid fa-circle-check"></i></div>' +
+    '<p style="font-family:Montserrat,sans-serif;font-weight:800;font-size:18px;color:#FFFFFF;margin-bottom:10px">' + d['cta.successTitle'] + '</p>' +
+    '<p style="color:rgba(255,255,255,0.55);font-size:14px;max-width:380px;margin:0 auto;line-height:1.65">' + d['cta.successMsg'] + '</p>' +
+    '</div>';
+}
+
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Expose globally so inline onclick= attributes still work
+window.setLang = setLang;
+window.toggleMenu = toggleMenu;
+window.syncDrawerLang = syncDrawerLang;
+window.handleSubmit = handleSubmit;
+window.showTab = showTab;
+
+}); // end DOMContentLoaded
+</script>
+</body>
+</html>
